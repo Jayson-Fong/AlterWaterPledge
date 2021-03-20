@@ -59,6 +59,11 @@ fieldset {
     text-decoration: underline;
 }
 
+.spacer {
+    font-stretch: ultra-expanded;
+    letter-spacing: 128px;
+}
+
 .pledgeItem {
     padding: 5px;
     margin-bottom: 10px;

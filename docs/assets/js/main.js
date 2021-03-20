@@ -22,12 +22,9 @@
  * THE SOFTWARE.
  */
 
-document.getElementById('dateString').innerHTML = new Date().toDateString();
-
 $.getJSON('./assets/data/main.json', function(data) {
     container = document.getElementById('pledgeItemHolder');
     footnotes = document.getElementById('footnotes');
-    console.log(container);
     var itemIndex, footnoteNumber = 1;
     for (itemIndex in data.pledgeItems) {
         subContainer = document.createElement('div');
@@ -53,12 +50,8 @@ $.getJSON('./assets/data/main.json', function(data) {
         subContainer.appendChild(itemLabel);
         
         container.appendChild(subContainer);
-        console.log('added one');
     }
 });
-
-blockNewline('nameInput');
-blockNewLine('dateString');
 
 function blockNewline(elementId) {
     document.getElementById(elementId).addEventListener('keypress', (event) => {
@@ -67,3 +60,28 @@ function blockNewline(elementId) {
         }
     });
 }
+
+function clearOnClick(elementId) {
+    document.getElementById(elementId).addEventListener('click', (event) => {
+        if (event.target.getAttribute('data-empty') === 'true') {
+            event.target.innerHTML = '';
+            event.target.setAttribute('data-empty', 'false');
+            event.target.classList.remove('spacer');
+        }
+    });
+}
+
+function dateOnClick(elementId) {
+    document.getElementById(elementId).addEventListener('click', (event) => {
+        if (event.target.getAttribute('data-empty') === 'true') {
+            event.target.innerHTML = new Date().toDateString();
+            event.target.setAttribute('data-empty', 'false');
+            event.target.classList.remove('spacer');
+        }
+    });
+}
+
+blockNewline('nameInput');
+blockNewline('dateString');
+clearOnClick('nameInput');
+dateOnClick('dateString');
