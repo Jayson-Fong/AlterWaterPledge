@@ -40,16 +40,37 @@ $.getJSON('./assets/data/main.json', function(data) {
         itemLabel.setAttribute('for', 'pledgeItem_' + itemIndex);
         itemLabel.innerHTML = data.pledgeItems[itemIndex].description;
         
-        // Label's Footnote
+        // Label's Footnote Link
+        footnoteLink = document.createElement('a');
+        footnoteLink.setAttribute('href', '#pledgeItemNote_' + itemIndex);
         footnote = document.createElement('sup');
-        footnote.innerHTML = footnoteNumber++;
-        itemLabel.appendChild(footnote);
+        footnote.innerText = footnoteNumber++;
+        footnoteLink.appendChild(footnote);
+        itemLabel.appendChild(footnoteLink);
         
         // Combine
         subContainer.appendChild(inputItem);
         subContainer.appendChild(itemLabel);
-        
         container.appendChild(subContainer);
+        
+        // Item's Footnote Container
+        footnoteContainer = document.createElement('div');
+        footnoteContainer.setAttribute('id', 'pledgeItemNote_' + itemIndex);
+        footnoteContainer.classList.add('detail');
+        
+        // Item's Footnote Text
+        footnoteText = document.createElement('span');
+        footnoteText.innerText = data.pledgeItems[itemIndex].detail;
+        footnoteText.classList.add('detail');
+        
+        // Item's Footnote Number
+        footnoteSideNumber = footnote.cloneNode(true);
+        footnoteSideNumber.setAttribute('id', 'pledgeItemFootnoteNumber_' + itemIndex);
+        
+        // Combine Footnote
+        footnoteContainer.appendChild(footnoteSideNumber);
+        footnoteContainer.appendChild(footnoteText);
+        footnotes.appendChild(footnoteContainer);        
     }
 });
 
@@ -81,8 +102,15 @@ function unspaceOnEdit(elementId) {
     });
 }
 
+function printOnClick(elementId) {
+    document.getElementById(elementId).addEventListener('click', (event) => {
+        window.print();
+    });
+}
+
 blockNewline('nameInput');
 blockNewline('dateString');
 dateOnClick('dateString');
 unspaceOnEdit('nameInput');
 unspaceOnEdit('dateString');
+printOnClick('printButton');
