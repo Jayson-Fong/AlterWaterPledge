@@ -61,16 +61,6 @@ function blockNewline(elementId) {
     });
 }
 
-function clearOnClick(elementId) {
-    document.getElementById(elementId).addEventListener('click', (event) => {
-        if (event.target.getAttribute('data-empty') === 'true') {
-            event.target.innerHTML = '';
-            event.target.setAttribute('data-empty', 'false');
-            event.target.classList.remove('spacer');
-        }
-    });
-}
-
 function dateOnClick(elementId) {
     document.getElementById(elementId).addEventListener('click', (event) => {
         if (event.target.getAttribute('data-empty') === 'true') {
@@ -81,7 +71,18 @@ function dateOnClick(elementId) {
     });
 }
 
+function unspaceOnEdit(elementId) {
+    document.getElementById(elementId).addEventListener('input', (event) => {
+        if (event.target.getAttribute('data-empty') === 'true') {
+            event.target.setAttribute('data-empty', 'false');
+            event.target.classList.remove('spacer');
+            event.target.innerHTML = event.target.innerText.trim();
+        }
+    });
+}
+
 blockNewline('nameInput');
 blockNewline('dateString');
-clearOnClick('nameInput');
 dateOnClick('dateString');
+unspaceOnEdit('nameInput');
+unspaceOnEdit('dateString');
