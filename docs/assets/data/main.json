@@ -1,0 +1,44 @@
+{
+    "pledgeItems": [
+        {
+            "description": "Turn off the tap when not in use.",
+            "detail": "N/A"
+        },
+        {
+            "description": "Reduce my use of disposable water bottles.",
+            "detail": "N/A"
+        },
+        {
+            "description": "Turn off lights when not in use.",
+            "detail": "N/A"
+        },
+        {
+            "description": "Purchase energy efficient appliances.",
+            "detail": "N/A"
+        },
+        {
+            "description": "Unplug or turn off appliances when not in use.",
+            "detail": "N/A"
+        },
+        {
+            "description": "Minimize paper waste and use both sides when possible.",
+            "detail": "N/A"
+        },
+        {
+            "description": "Minimize shower time to less than 5 minutes.",
+            "detail": "N/A"
+        },
+        {
+            "description": "Walk, bike, or carpool when possible and safe.",
+            "detail": "N/A"
+        },
+        {
+            "description": "Wash dinnerware by hand.",
+            "detail": "N/A"
+        },
+        {
+            "description": "Advocate for water and energy conservation.",
+            "detail": "N/A"
+        }
+    ]
+}
