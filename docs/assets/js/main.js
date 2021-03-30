@@ -82,14 +82,11 @@ function blockNewline(elementId) {
     });
 }
 
-function dateOnClick(elementId) {
-    document.getElementById(elementId).addEventListener('click', (event) => {
-        if (event.target.getAttribute('data-empty') === 'true') {
-            event.target.innerHTML = new Date().toDateString();
-            event.target.setAttribute('data-empty', 'false');
-            event.target.classList.remove('spacer');
-        }
-    });
+function setDate(elementId) {
+    var element = document.getElementById(elementId);
+    element.innerHTML = new Date().toDateString();
+    element.setAttribute('data-empty', 'false');
+    element.classList.remove('spacer');
 }
 
 function unspaceOnEdit(elementId) {
@@ -122,7 +119,7 @@ function changeFontOnClick(elementId) {
 
 blockNewline('nameInput');
 blockNewline('dateString');
-dateOnClick('dateString');
+setDate('dateString');
 unspaceOnEdit('nameInput');
 unspaceOnEdit('dateString');
 printOnClick('printButton');
