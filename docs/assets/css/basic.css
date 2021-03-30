@@ -32,7 +32,8 @@ THE SOFTWARE.
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lobster', cursive;
+    background-color: rgba(48, 255, 48, 0.5);
 }
 
 header {
@@ -132,6 +133,10 @@ span.detail {
 }
 
 @media print {
+    
+    body {
+        background-color: rgb(255, 255, 255);
+    }
     
     #printButton {
         display: none;
