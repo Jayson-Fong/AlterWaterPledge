@@ -32,8 +32,12 @@ THE SOFTWARE.
 }
 
 body {
-    font-family: 'Lobster', cursive;
+    font-family: cursive;
     background-color: rgba(48, 255, 48, 0.5);
+}
+
+.plainFont {
+    font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -106,7 +110,7 @@ a {
     width: 50%;
 }
 
-#printButton {
+#printButton, #plainButton {
     padding: 16px;
     margin: 12px;
     display: block;
@@ -138,7 +142,7 @@ span.detail {
         background-color: rgb(255, 255, 255);
     }
     
-    #printButton {
+    #printButton, #plainButton {
         display: none;
     }
     

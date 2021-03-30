@@ -108,9 +108,22 @@ function printOnClick(elementId) {
     });
 }
 
+function changeFontOnClick(elementId) {
+    document.getElementById(elementId).addEventListener('click', (event) => {
+        if (document.body.classList.contains('plainFont')) {
+            document.body.classList.remove('plainFont');
+            event.target.innerText = 'Switch to Fancy Font';
+        } else {
+            document.body.classList.add('plainFont');
+            event.target.innerText = 'Switch to Plain Font';
+        } 
+    });
+}
+
 blockNewline('nameInput');
 blockNewline('dateString');
 dateOnClick('dateString');
 unspaceOnEdit('nameInput');
 unspaceOnEdit('dateString');
 printOnClick('printButton');
+changeFontOnClick('plainButton');
