@@ -22,6 +22,11 @@
  * THE SOFTWARE.
  */
 
+/**
+ * Loads up the conservation methods dynamically
+ * @param {array} data
+ * @type type
+ */
 $.getJSON('./assets/data/main.json', function(data) {
     container = document.getElementById('pledgeItemHolder');
     footnotes = document.getElementById('footnotes');
@@ -74,6 +79,11 @@ $.getJSON('./assets/data/main.json', function(data) {
     }
 });
 
+/**
+ * Stops a newline from being entered into an input.
+ * @param {string} elementId
+ * @returns {undefined}
+ */
 function blockNewline(elementId) {
     document.getElementById(elementId).addEventListener('keypress', (event) => {
         if (event.which === 13) {
@@ -82,29 +92,50 @@ function blockNewline(elementId) {
     });
 }
 
+/**
+ * Sets an element's inner text to the current date.
+ * @param {string} elementId
+ * @returns {void}
+ */
 function setDate(elementId) {
     var element = document.getElementById(elementId);
-    element.innerHTML = new Date().toDateString();
+    element.innerText = new Date().toDateString();
     element.setAttribute('data-empty', 'false');
     element.classList.remove('spacer');
 }
 
+/**
+ * Trims an element's inner text
+ * @param {string} elementId
+ * @param {string} type
+ * @returns {void}
+ */
 function unspaceOn(elementId, type) {
     document.getElementById(elementId).addEventListener(type, (event) => {
         if (event.target.getAttribute('data-empty') === 'true') {
             event.target.setAttribute('data-empty', 'false');
             event.target.classList.remove('spacer');
-            event.target.innerHTML = event.target.innerText.trim();
+            event.target.innerText = event.target.innerText.trim();
         }
     });
 }
 
+/**
+ * Initiates the print function on click
+ * @param {string} elementId
+ * @returns {void}
+ */
 function printOnClick(elementId) {
     document.getElementById(elementId).addEventListener('click', (event) => {
         window.print();
     });
 }
 
+/**
+ * Switches the font between fancy/plain on click
+ * @param {string} elementId
+ * @returns {void}
+ */
 function changeFontOnClick(elementId) {
     document.getElementById(elementId).addEventListener('click', (event) => {
         if (document.body.classList.contains('plainFont')) {
