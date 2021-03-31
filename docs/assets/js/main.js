@@ -89,8 +89,8 @@ function setDate(elementId) {
     element.classList.remove('spacer');
 }
 
-function unspaceOnEdit(elementId) {
-    document.getElementById(elementId).addEventListener('input', (event) => {
+function unspaceOn(elementId, type) {
+    document.getElementById(elementId).addEventListener(type, (event) => {
         if (event.target.getAttribute('data-empty') === 'true') {
             event.target.setAttribute('data-empty', 'false');
             event.target.classList.remove('spacer');
@@ -122,7 +122,8 @@ function changeFontOnClick(elementId) {
 blockNewline('nameInput');
 blockNewline('dateString');
 setDate('dateString');
-unspaceOnEdit('nameInput');
-unspaceOnEdit('dateString');
+unspaceOn('nameInput', 'click');
+unspaceOn('nameInput', 'input');
+unspaceOn('dateString', 'input');
 printOnClick('printButton');
 changeFontOnClick('plainButton');
