@@ -36,7 +36,7 @@ body {
     background-color: rgba(48, 255, 48, 0.5);
 }
 
-.plainFont {
+body.plainFont {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -117,6 +117,11 @@ a {
     text-align: center;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#plainButton.plainFont {
+    font-family: cursive;
 }
 
 #footnotes h1 {

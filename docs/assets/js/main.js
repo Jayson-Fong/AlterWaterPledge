@@ -109,9 +109,11 @@ function changeFontOnClick(elementId) {
     document.getElementById(elementId).addEventListener('click', (event) => {
         if (document.body.classList.contains('plainFont')) {
             document.body.classList.remove('plainFont');
+            event.target.classList.remove('plainFont');
             event.target.innerText = 'Switch to Plain Edition';
         } else {
             document.body.classList.add('plainFont');
+            event.target.classList.add('plainFont');
             event.target.innerText = 'Switch to Fancy Edition';
         } 
     });
